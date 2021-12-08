@@ -20,7 +20,6 @@ void shortestPath  (vector<vector<int>> graph, int src){
 	//initialize distance to infinity
 	//get the number of nodes in the graph
 	int num_nodes = graph.size();
-	cout<<num_nodes<<endl;
 	vector<int> distances(num_nodes,INT_MAX);
 	vector<bool> visited(num_nodes, false);
 	
@@ -53,23 +52,39 @@ void shortestPath  (vector<vector<int>> graph, int src){
 }
 
 int main(){
-	vector<vector<int>>graph {
-		{0,3,8,0,0},
-		{3,0,0,2,0},
-		{8,0,0,3,0},
-		{12,2,0,0,3},
-		{0,0,0,3,0}
+	vector<vector<int>>graphA {
+		{0,2,1,5,0,0}, //u
+		{2,0,2,3,0,0}, //v
+		{1,2,0,3,1,0},//x
+		{5,3,3,0,1,5},//w
+		{0,0,1,1,0,2},//y
+		{0,0,0,5,2,0} //z
 	};
 
-	  vector<vector<int>>graph2{ 
+	vector<vector<int>>graphB{
+		{0,6,8,3,6,0,0,0}, //x
+		{6,0,12,8,0,7,0}, //y
+		{8,12,0,0,0,0,0}, //z
+		{3,8,0,0,4,4,3}, //v
+		{6,0,0,4,0,0,3}, //w
+		{0,7,0,4,0,0,2},//t
+		{0,0,0,3,3,2,0} //u
+	};
+
+	  vector<vector<int>>graphC{ 
 		  	{0,9,8,5,0,0 }, //u
                         {9,0,1,6,0,0 }, //v
                         {8,1,0,5,2,0 }, //x
                         {0,6,5,0,6,6 }, //w
                         {0,0,2,6,0,4 }, //y
-                        { 0,0,0,0,6,4,0 }//z
+                        {0,0,0,0,6,4,0 }//z
 	  };
-
-	shortestPath(graph,0);
-	shortestPath(graph2,0);
+	cout<<"Part A solution : \n"<<endl; 
+	shortestPath(graphA,0); //from u
+	cout<<"\n";
+	cout<<"Part B solution: \n"<<endl;
+	shortestPath(graphB,0); //from x
+	cout<<"\n";
+	cout<<"Part C solution :\n"<<endl;
+	shortestPath(graphC,0); //from u
 }
